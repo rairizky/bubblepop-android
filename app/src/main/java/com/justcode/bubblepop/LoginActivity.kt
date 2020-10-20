@@ -21,6 +21,11 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
+        // go to main
+        btnToMain.setOnClickListener {
+            finish()
+        }
+
         // go to register
         goToRegister.setOnClickListener {
             startActivity<RegisterActivity>()
