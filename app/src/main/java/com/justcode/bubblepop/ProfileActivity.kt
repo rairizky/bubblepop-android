@@ -9,6 +9,6 @@ class ProfileActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_profile)
 
-        longToast("ini profile page")
+        
     }
 }
