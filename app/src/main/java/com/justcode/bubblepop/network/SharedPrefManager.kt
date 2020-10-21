@@ -48,7 +48,6 @@ class SharedPrefManager private constructor(context: Context) {
         val editor = sharedPreferences?.edit()
         editor?.clear()
         editor?.apply()
-        ctx?.startActivity<LoginActivity>()
     }
 
     companion object {
