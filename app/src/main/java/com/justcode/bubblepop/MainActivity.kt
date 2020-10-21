@@ -38,6 +38,11 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
+        // btn to all menu
+        btnAllMenu.setOnClickListener {
+            startActivity<MenuActivity>()
+        }
+
         // get header data
         getHeaderMenu()
 
