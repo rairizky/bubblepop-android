@@ -91,7 +91,7 @@ class MainActivity : AppCompatActivity() {
                         tvHeaderPrice.setText("Harga mulai dari Rp. ${priceHeader}")
 
                         headerMenu.setOnClickListener {
-                            toast("btn header menu yeuh!")
+                            toast(idHeader)
                         }
                     }
                 }

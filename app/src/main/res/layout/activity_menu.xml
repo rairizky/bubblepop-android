@@ -1,85 +1,101 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     tools:context=".MenuActivity">
     <LinearLayout
-        android:paddingTop="24dp"
-        android:paddingLeft="14dp"
-        android:paddingRight="24dp"
-        android:paddingBottom="8dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-        <Button
-            android:id="@+id/btnToMainFromMenu"
-            android:text="Back"
-            android:drawableLeft="@drawable/ic_baseline_keyboard_backspace_24"
-            android:drawableTint="@color/colorPrimaryDark"
-            style="@style/Widget.MaterialComponents.Button.TextButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-        <androidx.appcompat.widget.SearchView
-            android:id="@+id/searchMenu"
-            android:layout_marginLeft="8dp"
-            android:background="@drawable/bg_border_light"
-            app:iconifiedByDefault="false"
-            app:queryBackground="@null"
-            app:queryHint="Cari menu..."
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-    </LinearLayout>
-    <LinearLayout
-        android:layout_marginTop="16dp"
-        android:layout_marginLeft="24dp"
-        android:layout_marginRight="24dp"
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <TextView
-            android:text="Total "
-            android:textSize="16sp"
-            android:textColor="@color/colorMatte"
-            android:fontFamily="@font/poppins_medium"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-        <TextView
-            android:id="@+id/totalAllMenu"
-            tools:text="0 menu"
-            android:textSize="16sp"
-            android:textColor="@color/colorMatte"
-            android:fontFamily="@font/poppins_medium"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-    </LinearLayout>
-    <LinearLayout
-        android:paddingTop="8dp"
-        android:paddingLeft="24dp"
-        android:paddingRight="24dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
-        <com.facebook.shimmer.ShimmerFrameLayout
-            android:id="@+id/shimmerAllMenu"
-            android:visibility="gone"
+        <LinearLayout
+            android:paddingTop="24dp"
+            android:paddingLeft="14dp"
+            android:paddingRight="24dp"
+            android:paddingBottom="8dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <Button
+                android:id="@+id/btnToMainFromMenu"
+                android:text="Back"
+                android:drawableLeft="@drawable/ic_baseline_keyboard_backspace_24"
+                android:drawableTint="@color/colorPrimaryDark"
+                style="@style/Widget.MaterialComponents.Button.TextButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <androidx.appcompat.widget.SearchView
+                android:id="@+id/searchMenu"
+                android:layout_marginLeft="8dp"
+                android:background="@drawable/bg_border_light"
+                app:iconifiedByDefault="false"
+                app:queryBackground="@null"
+                app:queryHint="Cari menu..."
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_marginTop="16dp"
+            android:layout_marginLeft="24dp"
+            android:layout_marginRight="24dp"
+            android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
-            <LinearLayout
+            <TextView
+                android:text="Total "
+                android:textSize="14sp"
+                android:textColor="@color/colorMatte"
+                android:fontFamily="@font/poppins_regular"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <TextView
+                android:id="@+id/totalAllMenu"
+                tools:text="0 menu"
+                android:textSize="14sp"
+                android:textColor="@color/colorMatte"
+                android:fontFamily="@font/poppins_regular"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-                <View
-                    android:background="@drawable/placeholder_shape_light"
-                    android:layout_width="160dp"
-                    android:layout_height="200dp" />
-            </LinearLayout>
-        </com.facebook.shimmer.ShimmerFrameLayout>
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rvAllMenu"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <com.facebook.shimmer.ShimmerFrameLayout
+                android:id="@+id/shimmerAllMenu"
+                android:layout_marginRight="24dp"
+                android:layout_marginLeft="24dp"
+                android:visibility="gone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <View
+                        android:background="@drawable/placeholder_shape_light"
+                        android:layout_marginTop="8dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="105dp" />
+                    <View
+                        android:background="@drawable/placeholder_shape_light"
+                        android:layout_marginTop="8dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="105dp" />
+                    <View
+                        android:background="@drawable/placeholder_shape_light"
+                        android:layout_marginTop="8dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="105dp" />
+                </LinearLayout>
+            </com.facebook.shimmer.ShimmerFrameLayout>
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvAllMenu"
+                tools:listitem="@layout/item_list_menu"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
     </LinearLayout>
-</LinearLayout>
+</androidx.core.widget.NestedScrollView>
