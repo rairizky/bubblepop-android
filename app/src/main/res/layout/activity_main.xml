@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
+<androidx.core.widget.NestedScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -120,6 +120,25 @@
                                 android:layout_height="30dp"/>
                         </androidx.cardview.widget.CardView>
                         <androidx.cardview.widget.CardView
+                            android:id="@+id/layoutBtnTransaction"
+                            android:visibility="gone"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="5dp"
+                            android:layout_marginLeft="8dp"
+                            app:cardCornerRadius="8dp">
+                            <ImageView
+                                android:id="@+id/btnTransaction"
+                                android:padding="4dp"
+                                android:background="@drawable/layout_btn_icon_light"
+                                app:tint="@color/colorWhite"
+                                android:clickable="true"
+                                android:foreground="?attr/selectableItemBackgroundBorderless"
+                                android:src="@drawable/ic_baseline_confirmation_number_24"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"/>
+                        </androidx.cardview.widget.CardView>
+                        <androidx.cardview.widget.CardView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="5dp"
@@ -165,6 +184,7 @@
                             app:showTopShadow="false"
                             app:bottomShadowAlpha="0.2"
                             app:carouselType="BLOCK"
+                            app:carouselBackground="@color/colorWhite"
                             app:showNavigationButtons="false"
                             app:autoPlay="true"
                             app:autoPlayDelay="4500"
@@ -261,4 +281,4 @@
             </LinearLayout>
         </RelativeLayout>
     </LinearLayout>
-</ScrollView>
+</androidx.core.widget.NestedScrollView>
