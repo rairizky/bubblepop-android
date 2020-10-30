@@ -7,9 +7,11 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.justcode.bubblepop.BuildConfig
+import com.justcode.bubblepop.DetailMenuActivity
 import com.justcode.bubblepop.R
 import com.justcode.bubblepop.model.MenuItem
 import kotlinx.android.synthetic.main.item_selected_menu.view.*
+import org.jetbrains.anko.startActivity
 import org.jetbrains.anko.toast
 
 class SelectedMenuAdapter (private val context: Context?, var data: List<MenuItem?>?)
@@ -30,7 +32,7 @@ class SelectedMenuAdapter (private val context: Context?, var data: List<MenuIte
             .into(holder.imageMenu)
         holder.nameMenu.text = menu?.name
         holder.cardAllMenu.setOnClickListener {
-            context?.toast(menu?.id.toString())
+            context?.startActivity<DetailMenuActivity>("idMenu" to menu?.id.toString())
         }
     }
 

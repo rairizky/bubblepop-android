@@ -38,20 +38,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="horizontal">
-                <com.google.android.material.card.MaterialCardView
-                    app:strokeWidth="2dp"
-                    app:strokeColor="@color/colorWhite"
-                    app:cardCornerRadius="8dp"
-                    app:cardElevation="0dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
-                    <ImageView
-                        android:id="@+id/ivListImageMenu"
-                        tools:src="@drawable/dummy_menu"
-                        android:scaleType="centerCrop"
-                        android:layout_width="72dp"
-                        android:layout_height="72dp"/>
-                </com.google.android.material.card.MaterialCardView>
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/ivListImageMenu"
+                    tools:src="@drawable/dummy_menu"
+                    android:scaleType="centerCrop"
+                    android:layout_width="72dp"
+                    android:layout_height="72dp"/>
                 <LinearLayout
                     android:layout_gravity="center"
                     android:layout_marginLeft="8dp"

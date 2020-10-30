@@ -8,9 +8,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.justcode.bubblepop.model.MenuItem
 import com.justcode.bubblepop.BuildConfig
+import com.justcode.bubblepop.DetailMenuActivity
 import com.justcode.bubblepop.R
+import org.jetbrains.anko.startActivity
 import kotlinx.android.synthetic.main.item_list_menu.view.*
-import org.jetbrains.anko.toast
 
 class AllMenuAdapter (private val context: Context?, var data: List<MenuItem?>?)
     : RecyclerView.Adapter<AllMenuAdapter.ViewHolder>() {
@@ -35,7 +36,7 @@ class AllMenuAdapter (private val context: Context?, var data: List<MenuItem?>?)
         holder.tvDesc.text = menu?.description
 
         holder.cardItem.setOnClickListener{
-            context?.toast(menu?.id.toString())
+            context?.startActivity<DetailMenuActivity>("idMenu" to menu?.id.toString())
         }
     }
 

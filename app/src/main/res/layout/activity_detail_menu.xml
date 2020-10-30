@@ -1,9 +1,104 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/colorWhite"
     tools:context=".DetailMenuActivity">
+    <androidx.cardview.widget.CardView
+        app:cardElevation="16dp"
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <LinearLayout
+            android:layout_margin="8dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <Button
+                android:layout_gravity="center"
+                android:drawableLeft="@drawable/ic_baseline_shopping_cart_24"
+                android:drawableTint="@color/colorPrimaryDark"
+                android:padding="12dp"
+                android:backgroundTint="@color/colorWhite"
+                android:layout_marginRight="8dp"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="48dp"
+                android:layout_height="56dp"/>
+            <Button
+                android:text="Tambah ke keranjang"
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"/>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <RelativeLayout
+                android:id="@+id/headerDetailMenu"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <com.facebook.shimmer.ShimmerFrameLayout
+                    android:id="@+id/shimmerHeaderDetailMenu"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="16dp"
+                    android:visibility="visible">
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="264dp"
+                        android:layout_marginBottom="24dp"
+                        android:background="@drawable/placeholder_shape_dark" />
+                </com.facebook.shimmer.ShimmerFrameLayout>
+                <RelativeLayout
+                    android:id="@+id/ivHeaderDetailMenuLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <ImageView
+                        android:id="@+id/ivHeaderDetailMenu"
+                        android:layout_width="match_parent"
+                        android:layout_height="320dp"
+                        android:scaleType="centerCrop" />
+                    <ImageView
+                        android:id="@+id/ivHeaderDetailMenuOpacity"
+                        android:layout_width="match_parent"
+                        android:layout_height="320dp"
+                        android:src="@drawable/image_to_dark" />
+                </RelativeLayout>
+                <Button
+                    android:id="@+id/btnToMainFromDetailMenu"
+                    android:text="Back"
+                    android:textColor="@color/colorWhite"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginLeft="14dp"
+                    android:drawableLeft="@drawable/ic_baseline_keyboard_backspace_24"
+                    android:drawableTint="@color/colorWhite"
+                    style="@style/Widget.MaterialComponents.Button.TextButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+            </RelativeLayout>
+            <LinearLayout
+                android:layout_below="@id/headerDetailMenu"
+                android:layout_marginTop="-24dp"
+                android:paddingTop="24dp"
+                android:paddingRight="24dp"
+                android:paddingLeft="24dp"
+                android:paddingBottom="72dp"
+                android:background="@drawable/layout_top_radius"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+            </LinearLayout>
+        </RelativeLayout>
+    </androidx.core.widget.NestedScrollView>
+</RelativeLayout>
