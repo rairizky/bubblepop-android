@@ -1,14 +1,12 @@
 package com.justcode.bubblepop.network
 
 import com.justcode.bubblepop.model.AuthResponse
+import com.justcode.bubblepop.model.MenuDetailResponse
 import com.justcode.bubblepop.model.MenuResponse
 import com.justcode.bubblepop.model.PromoResponse
 import okhttp3.ResponseBody
 import retrofit2.Call
-import retrofit2.http.Field
-import retrofit2.http.FormUrlEncoded
-import retrofit2.http.GET
-import retrofit2.http.POST
+import retrofit2.http.*
 
 interface ApiService {
 
@@ -20,6 +18,11 @@ interface ApiService {
 
     @GET("menu")
     fun getMenu() : Call<MenuResponse>
+
+    @GET("menu/{id}")
+    fun getDetailMenu(
+        @Path("id") id : String
+    ) : Call<MenuDetailResponse>
 
     @FormUrlEncoded
     @POST("auth/login")
@@ -35,4 +38,5 @@ interface ApiService {
         @Field("email") email: String,
         @Field("password") password: String
     ) : Call<AuthResponse>
+
 }
