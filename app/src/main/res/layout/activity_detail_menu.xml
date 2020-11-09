@@ -8,6 +8,7 @@
     android:background="@color/colorWhite"
     tools:context=".DetailMenuActivity">
     <androidx.cardview.widget.CardView
+        android:id="@+id/layoutEventMenu"
         app:cardElevation="16dp"
         android:layout_alignParentBottom="true"
         android:layout_width="match_parent"
@@ -19,6 +20,7 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal">
             <Button
+                android:id="@+id/btnToCart"
                 android:layout_gravity="center"
                 android:drawableLeft="@drawable/ic_baseline_shopping_cart_24"
                 android:drawableTint="@color/colorPrimaryDark"
@@ -29,8 +31,8 @@
                 android:layout_width="48dp"
                 android:layout_height="56dp"/>
             <Button
+                android:id="@+id/btnAddMenuToCart"
                 android:text="Tambah ke keranjang"
-
                 style="?android:attr/borderlessButtonStyle"
                 android:layout_gravity="center"
                 android:layout_width="match_parent"
@@ -97,155 +99,198 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
-                <TextView
-                    android:id="@+id/tvNameDetailMenu"
-                    tools:text="Bubble Strawberry"
-                    android:fontFamily="@font/poppins_bold"
-                    android:textSize="24sp"
-                    android:layout_alignParentLeft="true"
-                    android:layout_centerInParent="true"
-                    android:textColor="@color/colorMatte"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
-                <LinearLayout
-                    android:background="@drawable/bg_border_dark"
-                    android:orientation="vertical"
-                    android:layout_marginTop="24dp"
-                    android:layout_width="wrap_content"
+                <com.facebook.shimmer.ShimmerFrameLayout
+                    android:id="@+id/shimmerItemDetailMenu"
+                    android:visibility="gone"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content">
                     <LinearLayout
-                        android:padding="16dp"
-                        android:orientation="horizontal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                        <View
+                            android:layout_marginTop="6dp"
+                            android:background="@drawable/placeholder_shape_dark"
+                            android:layout_width="240dp"
+                            android:layout_height="25dp"/>
+                        <View
+                            android:layout_marginTop="24dp"
+                            android:background="@drawable/placeholder_shape_dark"
+                            android:layout_width="135dp"
+                            android:layout_height="110dp"/>
+                        <View
+                            android:layout_marginTop="16dp"
+                            android:background="@drawable/placeholder_shape_dark"
+                            android:layout_width="100dp"
+                            android:layout_height="25dp"/>
+                        <View
+                            android:layout_marginTop="8dp"
+                            android:background="@drawable/placeholder_shape_dark"
+                            android:layout_width="200dp"
+                            android:layout_height="25dp"/>
+                        <View
+                            android:layout_marginTop="8dp"
+                            android:background="@drawable/placeholder_shape_dark"
+                            android:layout_width="200dp"
+                            android:layout_height="25dp"/>
+                    </LinearLayout>
+                </com.facebook.shimmer.ShimmerFrameLayout>
+                <LinearLayout
+                    android:id="@+id/layoutItemDetailMenu"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <TextView
+                        android:id="@+id/tvNameDetailMenu"
+                        tools:text="Bubble Strawberry"
+                        android:fontFamily="@font/poppins_bold"
+                        android:textSize="24sp"
+                        android:layout_alignParentLeft="true"
+                        android:layout_centerInParent="true"
+                        android:textColor="@color/colorMatte"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                    <LinearLayout
+                        android:background="@drawable/bg_border_dark"
+                        android:orientation="vertical"
+                        android:layout_marginTop="24dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content">
                         <LinearLayout
+                            android:padding="16dp"
+                            android:orientation="horizontal"
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:orientation="vertical">
-                            <TextView
-                                android:text="Pilih size"
-                                android:textSize="16sp"
-                                android:fontFamily="@font/poppins_medium"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"/>
-                            <RadioGroup
-                                android:orientation="horizontal"
-                                android:id="@+id/radioGroupMenu"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content">
-                                <com.google.android.material.radiobutton.MaterialRadioButton
-                                    android:id="@+id/radioSizeMenuM"
-                                    tools:text="M"
-                                    android:fontFamily="@font/poppins_medium"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"/>
-                                <com.google.android.material.radiobutton.MaterialRadioButton
-                                    android:id="@+id/radioSizeMenuL"
-                                    tools:text="L"
-                                    android:fontFamily="@font/poppins_medium"
-                                    android:layout_marginLeft="8dp"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"/>
-                            </RadioGroup>
-                        </LinearLayout>
-                        <LinearLayout
-                            android:id="@+id/layoutCounterMenu"
-                            android:visibility="gone"
-                            android:layout_marginLeft="16dp"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:orientation="vertical">
-                            <TextView
-                                android:text="Jumlah"
-                                android:fontFamily="@font/poppins_medium"
-                                android:textSize="16sp"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"/>
+                            android:layout_height="wrap_content">
                             <LinearLayout
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:orientation="horizontal">
-                                <androidx.cardview.widget.CardView
-                                    android:layout_gravity="center"
-                                    app:cardCornerRadius="8dp"
-                                    app:cardElevation="0dp"
+                                android:orientation="vertical">
+                                <TextView
+                                    android:text="Pilih size"
+                                    android:textSize="15sp"
+                                    android:fontFamily="@font/poppins_regular"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"/>
+                                <RadioGroup
+                                    android:layout_marginTop="-5dp"
+                                    android:orientation="horizontal"
+                                    android:id="@+id/radioGroupMenu"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content">
-                                    <ImageView
-                                        android:id="@+id/btnDecreaseCounterMenu"
-                                        android:padding="4dp"
-                                        android:background="@drawable/layout_btn_icon_light"
-                                        app:tint="@color/colorWhite"
-                                        android:clickable="true"
-                                        android:foreground="?attr/selectableItemBackgroundBorderless"
-                                        android:src="@drawable/ic_baseline_keyboard_arrow_left_24"
-                                        android:layout_width="30dp"
-                                        android:layout_height="30dp"/>
-                                </androidx.cardview.widget.CardView>
-                                <EditText
-                                    android:text="0"
-                                    android:fontFamily="@font/poppins_medium"
-                                    android:textAlignment="center"
-                                    android:minLines="1"
-                                    android:inputType="number"
-                                    android:layout_marginStart="8dp"
-                                    android:layout_marginEnd="8dp"
-                                    android:layout_width="50dp"
-                                    android:layout_height="wrap_content"/>
-                                <androidx.cardview.widget.CardView
-                                    android:layout_gravity="center"
-                                    app:cardElevation="0dp"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    app:cardCornerRadius="8dp">
-                                    <ImageView
-                                        android:id="@+id/btnIncreaseCounterMenu"
-                                        android:padding="4dp"
-                                        android:background="@drawable/layout_btn_icon_light"
-                                        app:tint="@color/colorWhite"
-                                        android:clickable="true"
-                                        android:foreground="?attr/selectableItemBackgroundBorderless"
-                                        android:src="@drawable/ic_baseline_keyboard_arrow_right_24"
-                                        android:layout_width="30dp"
-                                        android:layout_height="30dp"/>
-                                </androidx.cardview.widget.CardView>
+                                    <RadioButton
+                                        android:id="@+id/radioSizeMenuM"
+                                        android:text="M"
+                                        android:fontFamily="@font/poppins_medium"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"/>
+                                    <RadioButton
+                                        android:id="@+id/radioSizeMenuL"
+                                        android:text="L"
+                                        android:fontFamily="@font/poppins_medium"
+                                        android:layout_marginLeft="8dp"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"/>
+                                </RadioGroup>
                             </LinearLayout>
                             <LinearLayout
-                                android:layout_marginTop="8dp"
+                                android:id="@+id/layoutCounterMenu"
+                                android:visibility="gone"
+                                android:layout_marginLeft="16dp"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:orientation="horizontal">
+                                android:orientation="vertical">
                                 <TextView
-                                    android:text="Total Rp. "
-                                    android:textSize="16sp"
-                                    android:fontFamily="@font/poppins_medium"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"/>
-                                <TextView
-                                    android:id="@+id/totalPriceMenu"
-                                    tools:text="60000"
+                                    android:text="Jumlah"
                                     android:fontFamily="@font/poppins_medium"
                                     android:textSize="16sp"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"/>
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="horizontal">
+                                    <androidx.cardview.widget.CardView
+                                        android:layout_gravity="center"
+                                        app:cardCornerRadius="8dp"
+                                        app:cardElevation="0dp"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content">
+                                        <ImageView
+                                            android:id="@+id/btnDecreaseCounterMenu"
+                                            android:padding="4dp"
+                                            android:background="@drawable/layout_btn_icon_light"
+                                            app:tint="@color/colorWhite"
+                                            android:clickable="true"
+                                            android:foreground="?attr/selectableItemBackgroundBorderless"
+                                            android:src="@drawable/ic_baseline_keyboard_arrow_left_24"
+                                            android:layout_width="30dp"
+                                            android:layout_height="30dp"/>
+                                    </androidx.cardview.widget.CardView>
+                                    <EditText
+                                        android:text="0"
+                                        android:fontFamily="@font/poppins_medium"
+                                        android:textAlignment="center"
+                                        android:minLines="1"
+                                        android:inputType="number"
+                                        android:layout_marginStart="8dp"
+                                        android:layout_marginEnd="8dp"
+                                        android:layout_width="50dp"
+                                        android:layout_height="wrap_content"/>
+                                    <androidx.cardview.widget.CardView
+                                        android:layout_gravity="center"
+                                        app:cardElevation="0dp"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        app:cardCornerRadius="8dp">
+                                        <ImageView
+                                            android:id="@+id/btnIncreaseCounterMenu"
+                                            android:padding="4dp"
+                                            android:background="@drawable/layout_btn_icon_light"
+                                            app:tint="@color/colorWhite"
+                                            android:clickable="true"
+                                            android:foreground="?attr/selectableItemBackgroundBorderless"
+                                            android:src="@drawable/ic_baseline_keyboard_arrow_right_24"
+                                            android:layout_width="30dp"
+                                            android:layout_height="30dp"/>
+                                    </androidx.cardview.widget.CardView>
+                                </LinearLayout>
+                                <LinearLayout
+                                    android:layout_marginTop="8dp"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="horizontal">
+                                    <TextView
+                                        android:text="Total Rp. "
+                                        android:textSize="16sp"
+                                        android:fontFamily="@font/poppins_medium"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"/>
+                                    <TextView
+                                        android:id="@+id/totalPriceMenu"
+                                        tools:text="60000"
+                                        android:fontFamily="@font/poppins_medium"
+                                        android:textSize="16sp"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"/>
+                                </LinearLayout>
                             </LinearLayout>
                         </LinearLayout>
                     </LinearLayout>
+                    <TextView
+                        android:text="Deskripsi"
+                        android:layout_marginTop="16dp"
+                        android:textSize="15sp"
+                        android:fontFamily="@font/poppins_regular"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                    <TextView
+                        android:id="@+id/tvDescriptionDetailMenu"
+                        android:textSize="15sp"
+                        android:fontFamily="@font/poppins_medium"
+                        tools:text="@string/lorem_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
                 </LinearLayout>
-                <TextView
-                    android:text="Deskripsi"
-                    android:layout_marginTop="16dp"
-                    android:textSize="16sp"
-                    android:fontFamily="@font/poppins_medium"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
-                <TextView
-                    android:id="@+id/tvDescriptionDetailMenu"
-                    android:textSize="16sp"
-                    android:fontFamily="@font/poppins_medium"
-                    tools:text="@string/lorem_text"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"/>
             </LinearLayout>
         </RelativeLayout>
     </androidx.core.widget.NestedScrollView>

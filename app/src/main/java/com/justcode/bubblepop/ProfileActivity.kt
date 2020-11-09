@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.core.content.ContextCompat
 import com.example.awesomedialog.*
+import com.justcode.bubblepop.adapter.ProfilePagerAdapter
 import com.justcode.bubblepop.network.SharedPrefManager
 import kotlinx.android.synthetic.main.activity_profile.*
 import org.jetbrains.anko.longToast
@@ -39,5 +40,14 @@ class ProfileActivity : AppCompatActivity() {
                 }
                 .onNegative("Cancel")
         }
+
+        // setup view pager
+        setupViewPagerProfile(current.id.toString())
+    }
+
+    private fun setupViewPagerProfile(userid: String) {
+        val profilePagerAdapter = ProfilePagerAdapter(applicationContext, supportFragmentManager, userid)
+        vpProfile.adapter = profilePagerAdapter
+        tlProfile.setupWithViewPager(vpProfile)
     }
 }
