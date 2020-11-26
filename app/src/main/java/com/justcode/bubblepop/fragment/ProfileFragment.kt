@@ -6,24 +6,22 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.justcode.bubblepop.R
+import kotlinx.android.synthetic.main.fragment_profile.*
 import org.jetbrains.anko.support.v4.toast
 
 
-/**
- * A simple [Fragment] subclass.
- * Use the [ProfileFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class ProfileFragment : Fragment() {
 
-    private val ARG_USER_ID = "user_id"
+    companion object {
+        private val ARG_USER_ID = "user_id"
 
-    fun newInstance(user_id: String) : ProfileFragment {
-        val fragment = ProfileFragment()
-        val bundle = Bundle()
-        bundle.putString(ARG_USER_ID, user_id)
-        fragment.arguments = bundle
-        return fragment
+        fun newInstance(user_id: String) : ProfileFragment {
+            val fragment = ProfileFragment()
+            val bundle = Bundle()
+            bundle.putString(ARG_USER_ID, user_id)
+            fragment.arguments = bundle
+            return fragment
+        }
     }
 
     override fun onCreateView(
@@ -43,7 +41,7 @@ class ProfileFragment : Fragment() {
             userid = arguments?.getString(ARG_USER_ID) as String
         }
 
-        toast(userid)
+        getIdProfile.text = userid
     }
 
 }

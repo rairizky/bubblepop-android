@@ -6,18 +6,21 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.justcode.bubblepop.R
+import kotlinx.android.synthetic.main.fragment_setting.*
 import org.jetbrains.anko.support.v4.toast
 
 class SettingFragment : Fragment() {
 
-    private val ARG_USER_ID = "user_id"
+    companion object {
+        private val ARG_USER_ID = "user_id"
 
-    fun newInstance(user_id: String) : SettingFragment {
-        val fragment = SettingFragment()
-        val bundle = Bundle()
-        bundle.putString(ARG_USER_ID, user_id)
-        fragment.arguments = bundle
-        return fragment
+        fun newInstance(user_id: String) : SettingFragment {
+            val fragment = SettingFragment()
+            val bundle = Bundle()
+            bundle.putString(ARG_USER_ID, user_id)
+            fragment.arguments = bundle
+            return fragment
+        }
     }
 
     override fun onCreateView(
@@ -37,7 +40,7 @@ class SettingFragment : Fragment() {
             userid = arguments?.getString(ARG_USER_ID) as String
         }
 
-        toast(userid)
+        getIdSetting.text = userid
 
     }
 

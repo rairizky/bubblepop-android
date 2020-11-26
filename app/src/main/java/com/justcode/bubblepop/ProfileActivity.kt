@@ -42,11 +42,7 @@ class ProfileActivity : AppCompatActivity() {
         }
 
         // setup view pager
-        setupViewPagerProfile(current.id.toString())
-    }
-
-    private fun setupViewPagerProfile(userid: String) {
-        val profilePagerAdapter = ProfilePagerAdapter(applicationContext, supportFragmentManager, userid)
+        val profilePagerAdapter = ProfilePagerAdapter(this, supportFragmentManager, current.id.toString())
         vpProfile.adapter = profilePagerAdapter
         tlProfile.setupWithViewPager(vpProfile)
     }

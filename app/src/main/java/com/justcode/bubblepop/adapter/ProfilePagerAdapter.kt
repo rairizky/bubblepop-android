@@ -19,13 +19,8 @@ class ProfilePagerAdapter(private val context: Context, fm: FragmentManager, pri
     override fun getItem(position: Int): Fragment {
         var fragment: Fragment? = null
         when(position) {
-            0 -> {
-                fragment = ProfileFragment().newInstance(userid)
-            }
-
-            1 -> {
-                fragment = SettingFragment().newInstance(userid)
-            }
+            0 -> fragment = ProfileFragment.newInstance(userid)
+            1 -> fragment = SettingFragment.newInstance(userid)
         }
         return fragment as Fragment
     }
@@ -36,7 +31,7 @@ class ProfilePagerAdapter(private val context: Context, fm: FragmentManager, pri
     }
 
     override fun getCount(): Int {
-        return TAB_TITLES.size
+        return 2
     }
 
 }
