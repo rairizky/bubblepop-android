@@ -24,6 +24,16 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        // btn transaction
+        btnTransaction.setOnClickListener {
+            // check user has logged in
+            if (SharedPrefManager.getInstance(applicationContext).isLoggedIn) {
+                startActivity<TransactionActivity>()
+            } else {
+                startActivity<LoginActivity>()
+            }
+        }
+
         // btn search
         btnSearch.setOnClickListener {
             toast("btn search nii")

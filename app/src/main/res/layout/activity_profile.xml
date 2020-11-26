@@ -57,45 +57,59 @@
                 android:layout_width="match_parent"
                 android:layout_height="200dp">
                 <RelativeLayout
-                    android:background="@color/colorMatteOpacity"
-                    android:padding="24dp"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
                     <ImageView
-                        android:layout_alignParentTop="true"
-                        android:src="@drawable/logo_bubblepop"
-                        android:layout_width="80dp"
-                        android:layout_height="40dp"/>
-                    <LinearLayout
-                        android:layout_alignParentBottom="true"
-                        android:layout_alignParentLeft="true"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical">
-                        <TextView
-                            android:text="Member"
-                            android:textColor="@color/colorWhite"
-                            android:textSize="16sp"
-                            android:fontFamily="@font/poppins_regular"
+                        android:src="@drawable/pattern_card"
+                        android:scaleType="centerCrop"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"/>
+                    <ImageView
+                        android:src="@color/colorMatteOpacity"
+                        android:alpha="0.6"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"/>
+                    <RelativeLayout
+                        android:padding="24dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+                        <ImageView
+                            android:layout_alignParentTop="true"
+                            android:src="@drawable/logo_bubblepop"
+                            android:layout_width="80dp"
+                            android:layout_height="40dp"/>
+                        <LinearLayout
+                            android:layout_alignParentBottom="true"
+                            android:layout_alignParentLeft="true"
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"/>
-                        <TextView
-                            android:id="@+id/etMemberName"
-                            tools:text="Rafli Rai Rizky"
-                            android:textSize="20sp"
-                            android:textColor="@color/colorWhite"
-                            android:fontFamily="@font/poppins_bold"
-                            android:layout_marginTop="-6dp"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"/>
-                    </LinearLayout>
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+                            <TextView
+                                android:text="Member"
+                                android:textColor="@color/colorWhite"
+                                android:textSize="16sp"
+                                android:fontFamily="@font/poppins_regular"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"/>
+                            <TextView
+                                android:id="@+id/etMemberName"
+                                tools:text="Rafli Rai Rizky"
+                                android:textSize="20sp"
+                                android:textColor="@color/colorWhite"
+                                android:fontFamily="@font/poppins_bold"
+                                android:layout_marginTop="-6dp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"/>
+                        </LinearLayout>
+                    </RelativeLayout>
                 </RelativeLayout>
             </com.google.android.material.card.MaterialCardView>
             <RelativeLayout
-                android:layout_marginTop="24dp"
+                android:layout_marginTop="8dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
                 <LinearLayout
+                    android:layout_centerInParent="true"
                     android:layout_alignParentLeft="true"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -103,28 +117,47 @@
                     <ImageView
                         android:src="@drawable/ic_baseline_fiber_smart_record_24"
                         app:tint="@android:color/darker_gray"
+                        android:layout_gravity="center"
                         android:layout_marginRight="8dp"
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"/>
+                        android:layout_width="28dp"
+                        android:layout_height="28dp"/>
                     <TextView
                         android:id="@+id/totalPoinUser"
                         android:text="0"
-                        android:textSize="18sp"
-                        android:fontFamily="@font/poppins_medium"
+                        android:textSize="16sp"
+                        android:fontFamily="@font/poppins_regular"
                         android:layout_gravity="center"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"/>
                     <TextView
                         android:text="Poin"
-                        android:layout_marginLeft="8dp"
-                        android:textSize="18sp"
-                        android:fontFamily="@font/poppins_medium"
+                        android:layout_marginLeft="4dp"
+                        android:textSize="16sp"
+                        android:fontFamily="@font/poppins_regular"
                         android:layout_gravity="center"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"/>
                 </LinearLayout>
+                <LinearLayout
+                    android:layout_alignParentRight="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnTukarPoin"
+                        android:text="TUKAR POIN"
+                        android:layout_gravity="end"
+                        android:insetRight="0dp"
+                        android:insetLeft="0dp"
+                        android:fontFamily="@font/poppins_medium"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        style="@style/Widget.MaterialComponents.Button.TextButton" />
+                </LinearLayout>
             </RelativeLayout>
             <LinearLayout
+                android:layout_marginTop="8dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">

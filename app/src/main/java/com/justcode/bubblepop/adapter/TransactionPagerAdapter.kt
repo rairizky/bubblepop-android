@@ -7,20 +7,22 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
 import com.justcode.bubblepop.R
-import com.justcode.bubblepop.fragment.ProfileFragment
-import com.justcode.bubblepop.fragment.SettingFragment
+import com.justcode.bubblepop.fragment.CartFragment
+import com.justcode.bubblepop.fragment.FinishFragment
+import com.justcode.bubblepop.fragment.PendingFragment
 
-class ProfilePagerAdapter(private val context: Context, fm: FragmentManager, private val userid: String)
+class TransactionPagerAdapter(private val context: Context, fm: FragmentManager, private val userid: String)
     : FragmentPagerAdapter(fm, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {
 
     @StringRes
-    private val TAB_TITLES = intArrayOf(R.string.profile, R.string.setting)
+    private val TAB_TITLES = intArrayOf(R.string.tr_keranjang, R.string.tr_pending, R.string.tr_finish)
 
     override fun getItem(position: Int): Fragment {
         var fragment: Fragment? = null
         when(position) {
-            0 -> fragment = ProfileFragment.newInstance(userid)
-            1 -> fragment = SettingFragment.newInstance(userid)
+            0 -> fragment = CartFragment.newInstance(userid)
+            1 -> fragment = PendingFragment.newInstance(userid)
+            2 -> fragment = FinishFragment.newInstance(userid)
         }
         return fragment as Fragment
     }
@@ -33,5 +35,4 @@ class ProfilePagerAdapter(private val context: Context, fm: FragmentManager, pri
     override fun getCount(): Int {
         return TAB_TITLES.size
     }
-
 }
