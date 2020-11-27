@@ -1,9 +1,6 @@
 package com.justcode.bubblepop.network
 
-import com.justcode.bubblepop.model.AuthResponse
-import com.justcode.bubblepop.model.MenuDetailResponse
-import com.justcode.bubblepop.model.MenuResponse
-import com.justcode.bubblepop.model.PromoResponse
+import com.justcode.bubblepop.model.*
 import okhttp3.ResponseBody
 import retrofit2.Call
 import retrofit2.http.*
@@ -38,5 +35,39 @@ interface ApiService {
         @Field("email") email: String,
         @Field("password") password: String
     ) : Call<AuthResponse>
+
+    // add menu to cart
+    @FormUrlEncoded
+    @POST("transaction/{userId}/cart/add")
+    fun postAddMenuToCart(
+        @Path("userId") userId : String,
+        @Field("size") size : String,
+        @Field("mount") mount : Int,
+        @Field("menu_id") menu_id : Int
+    ) : Call<MessageResponse>
+
+    // transaction cart
+    @GET("transaction/{userId}/cart")
+    fun getListCart(
+        @Path("userId") userId: String
+    ) : Call<CartResponse>
+
+    // checkout cart
+    @POST("transaction/{userId}/cart/checkout")
+    fun postCheckout(
+        @Path("userId") userId: String
+    ) : Call<MessageResponse>
+
+    // transaction pending
+    @GET("transaction/{userId}/pending")
+    fun getListPending(
+        @Path("userId") userId: String
+    ) : Call<PendingFinishResponse>
+
+    // transaction finish
+    @GET("transaction/{userId}/finish")
+    fun getListFinish(
+        @Path("userId") userId: String
+    ) : Call<PendingFinishResponse>
 
 }
