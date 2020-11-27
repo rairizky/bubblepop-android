@@ -7,10 +7,13 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.justcode.bubblepop.R
+import com.justcode.bubblepop.TransactionActivity
 import com.justcode.bubblepop.adapter.CartAdapter
 import com.justcode.bubblepop.model.CartResponse
+import com.justcode.bubblepop.model.MessageResponse
 import com.justcode.bubblepop.network.NetworkConfig
 import kotlinx.android.synthetic.main.fragment_cart.*
+import org.jetbrains.anko.support.v4.startActivity
 import org.jetbrains.anko.support.v4.toast
 import retrofit2.Call
 import retrofit2.Callback
@@ -62,7 +65,8 @@ class CartFragment : Fragment() {
             .enqueue(object: Callback<CartResponse> {
                 override fun onFailure(call: Call<CartResponse>, t: Throwable) {
                     hideCartLoading()
-                    toast(t.localizedMessage)
+                    rvCart.visibility = View.GONE
+                    layoutCartRefresh.visibility = View.VISIBLE
                 }
 
                 override fun onResponse(
@@ -78,8 +82,38 @@ class CartFragment : Fragment() {
                             layoutCartEmpty.visibility = View.VISIBLE
                         } else {
                             val data = response.body()?.transaction
+                            totalPriceCart.text = response.body()?.tprice.toString()
                             rvCart.layoutManager = LinearLayoutManager(context)
                             rvCart.adapter = CartAdapter(context, data)
+
+                            // btn checkout
+                            btnCheckout.setOnClickListener {
+                                NetworkConfig.service()
+                                    .postCheckout(user_id, response.body()?.tprice)
+                                    .enqueue(object: Callback<MessageResponse> {
+                                        override fun onFailure(
+                                            call: Call<MessageResponse>,
+                                            t: Throwable
+                                        ) {
+                                            toast(t.localizedMessage)
+                                        }
+
+                                        override fun onResponse(
+                                            call: Call<MessageResponse>,
+                                            responseCheckout: Response<MessageResponse>
+                                        ) {
+                                            if (responseCheckout.isSuccessful) {
+                                                if (responseCheckout.body()?.status == false) {
+                                                    toast(responseCheckout.body()?.message.toString())
+                                                } else {
+                                                    toast(responseCheckout.body()?.message.toString())
+                                                    startActivity<TransactionActivity>()
+                                                    activity?.finish()
+                                                }
+                                            }
+                                        }
+                                    })
+                            }
                         }
                     }
                 }

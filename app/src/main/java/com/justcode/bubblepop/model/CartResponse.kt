@@ -7,6 +7,9 @@ data class CartResponse(
 	@field:SerializedName("total")
 	val total: Int? = null,
 
+	@field:SerializedName("tprice")
+	val tprice: Int? = null,
+
 	@field:SerializedName("transaction")
 	val transaction: List<TransactionCartItem?>? = null,
 

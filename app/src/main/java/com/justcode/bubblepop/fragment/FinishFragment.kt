@@ -64,7 +64,8 @@ class FinishFragment : Fragment() {
             .enqueue(object: Callback<PendingFinishResponse> {
                 override fun onFailure(call: Call<PendingFinishResponse>, t: Throwable) {
                     hidePendingLoading()
-                    toast(t.localizedMessage)
+                    rvFinish.visibility = View.GONE
+                    layoutFinishRefresh.visibility = View.VISIBLE
                 }
 
                 override fun onResponse(

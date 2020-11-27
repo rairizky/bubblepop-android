@@ -36,5 +36,39 @@
                 android:layout_width="250dp"
                 android:layout_height="wrap_content"/>
         </LinearLayout>
+        <LinearLayout
+            android:id="@+id/layoutFinishRefresh"
+            android:visibility="gone"
+            android:layout_marginTop="100dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <ImageView
+                android:src="@drawable/item_refresh"
+                android:layout_gravity="center"
+                android:layout_width="150dp"
+                android:layout_height="150dp"/>
+            <TextView
+                android:text="Upss!, Silahkan Refresh"
+                android:textAlignment="center"
+                android:layout_gravity="center"
+                android:fontFamily="@font/poppins_semi_bold"
+                android:textColor="@color/colorPrimary"
+                android:textSize="20sp"
+                android:layout_marginTop="8dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <Button
+                android:id="@+id/btnRefreshFinish"
+                android:text="Refresh"
+                android:fontFamily="@font/poppins_medium"
+                android:layout_gravity="center"
+                android:layout_marginTop="8dp"
+                android:drawableTint="@color/colorPrimary"
+                android:drawableLeft="@drawable/ic_baseline_refresh_24"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
     </LinearLayout>
 </FrameLayout>

@@ -10,6 +10,7 @@ import com.justcode.bubblepop.R
 import com.justcode.bubblepop.adapter.PendingAdapter
 import com.justcode.bubblepop.model.PendingFinishResponse
 import com.justcode.bubblepop.network.NetworkConfig
+import kotlinx.android.synthetic.main.fragment_cart.*
 import kotlinx.android.synthetic.main.fragment_pending.*
 import org.jetbrains.anko.support.v4.toast
 import retrofit2.Call
@@ -61,7 +62,8 @@ class PendingFragment : Fragment() {
             .enqueue(object: Callback<PendingFinishResponse> {
                 override fun onFailure(call: Call<PendingFinishResponse>, t: Throwable) {
                     hidePendingLoading()
-                    toast(t.localizedMessage)
+                    rvPending.visibility = View.GONE
+                    layoutPendingRefresh.visibility = View.VISIBLE
                 }
 
                 override fun onResponse(

@@ -23,7 +23,7 @@ class FinishAdapter (private val context: Context?, var data: List<TransactionPe
         val item = data?.get(position)
 
         holder.noTransaksi.text = item?.id.toString()
-        holder.totalTransaksi.text = 0.toString()
+        holder.totalTransaksi.text = item?.total.toString()
     }
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {

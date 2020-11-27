@@ -22,7 +22,7 @@ class PendingAdapter(private val context: Context?, var data: List<TransactionPe
     override fun onBindViewHolder(holder: PendingAdapter.ViewHolder, position: Int) {
         val item = data?.get(position)
         holder.noTransaksi.text = item?.id.toString()
-        holder.totalTransaksi.text = 0.toString()
+        holder.totalTransaksi.text = item?.total.toString()
     }
 
 
