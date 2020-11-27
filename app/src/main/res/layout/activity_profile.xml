@@ -43,13 +43,13 @@
         <LinearLayout
             android:orientation="vertical"
             android:background="@drawable/layout_top_radius"
-            android:paddingTop="24dp"
-            android:paddingEnd="24dp"
-            android:paddingStart="24dp"
             android:layout_marginTop="-24dp"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
             <com.google.android.material.card.MaterialCardView
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="24dp"
+                android:layout_marginStart="24dp"
                 app:cardCornerRadius="24dp"
                 app:cardElevation="0dp"
                 app:strokeWidth="1dp"
@@ -106,6 +106,8 @@
             </com.google.android.material.card.MaterialCardView>
             <RelativeLayout
                 android:layout_marginTop="8dp"
+                android:layout_marginEnd="24dp"
+                android:layout_marginStart="24dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
                 <LinearLayout
@@ -163,6 +165,9 @@
                 android:orientation="vertical">
                 <com.google.android.material.tabs.TabLayout
                     android:id="@+id/tlProfile"
+                    android:elevation="5dp"
+                    app:tabPadding="10dp"
+                    android:background="@color/white"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"/>
                 <androidx.viewpager.widget.ViewPager

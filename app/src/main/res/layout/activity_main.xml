@@ -102,7 +102,24 @@
                         android:orientation="horizontal">
                         <androidx.cardview.widget.CardView
                             app:cardCornerRadius="8dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="5dp">
+                            <ImageView
+                                android:id="@+id/btnTransaction"
+                                android:padding="4dp"
+                                android:background="@drawable/layout_btn_icon_light"
+                                app:tint="@color/colorWhite"
+                                android:clickable="true"
+                                android:foreground="?attr/selectableItemBackgroundBorderless"
+                                android:src="@drawable/ic_baseline_confirmation_number_24"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"/>
+                        </androidx.cardview.widget.CardView>
+                        <androidx.cardview.widget.CardView
+                            app:cardCornerRadius="8dp"
                             android:layout_marginBottom="5dp"
+                            android:layout_marginLeft="8dp"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content">
                             <ImageView
@@ -113,25 +130,6 @@
                                 android:clickable="true"
                                 android:foreground="?attr/selectableItemBackgroundBorderless"
                                 android:src="@drawable/ic_baseline_search_24"
-                                android:layout_width="30dp"
-                                android:layout_height="30dp"/>
-                        </androidx.cardview.widget.CardView>
-                        <androidx.cardview.widget.CardView
-                            android:id="@+id/layoutBtnTransaction"
-                            android:visibility="gone"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginBottom="5dp"
-                            android:layout_marginLeft="8dp"
-                            app:cardCornerRadius="8dp">
-                            <ImageView
-                                android:id="@+id/btnTransaction"
-                                android:padding="4dp"
-                                android:background="@drawable/layout_btn_icon_light"
-                                app:tint="@color/colorWhite"
-                                android:clickable="true"
-                                android:foreground="?attr/selectableItemBackgroundBorderless"
-                                android:src="@drawable/ic_baseline_confirmation_number_24"
                                 android:layout_width="30dp"
                                 android:layout_height="30dp"/>
                         </androidx.cardview.widget.CardView>

@@ -5,7 +5,18 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.justcode.bubblepop.R
+import com.justcode.bubblepop.adapter.FinishAdapter
+import com.justcode.bubblepop.adapter.PendingAdapter
+import com.justcode.bubblepop.model.PendingFinishResponse
+import com.justcode.bubblepop.network.NetworkConfig
+import kotlinx.android.synthetic.main.fragment_finish.*
+import kotlinx.android.synthetic.main.fragment_pending.*
+import org.jetbrains.anko.support.v4.toast
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 
 class FinishFragment : Fragment() {
@@ -38,5 +49,47 @@ class FinishFragment : Fragment() {
         if (arguments != null) {
             userid = arguments?.getString(ARG_USER_ID) as String
         }
+
+        // get list finish
+        getListFinish(userid)
+    }
+
+    fun getListFinish(user_id: String) {
+        // show loading
+        showPendingLoading()
+
+        // process
+        NetworkConfig.service()
+            .getListFinish(user_id)
+            .enqueue(object: Callback<PendingFinishResponse> {
+                override fun onFailure(call: Call<PendingFinishResponse>, t: Throwable) {
+                    hidePendingLoading()
+                    toast(t.localizedMessage)
+                }
+
+                override fun onResponse(
+                    call: Call<PendingFinishResponse>,
+                    response: Response<PendingFinishResponse>
+                ) {
+                    if (response.isSuccessful) {
+                        if (response.body()?.total == 0) {
+                            rvFinish.visibility = View.GONE
+                            layoutFinishEmpty.visibility = View.VISIBLE
+                        } else {
+                            val data = response.body()?.transaction
+                            rvFinish.layoutManager = LinearLayoutManager(context)
+                            rvFinish.adapter = FinishAdapter(context, data)
+                        }
+                    }
+                }
+            })
+    }
+
+    fun showPendingLoading() {
+        toast("loading")
+    }
+
+    fun hidePendingLoading() {
+        toast("finish")
     }
 }

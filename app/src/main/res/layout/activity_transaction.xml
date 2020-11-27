@@ -29,7 +29,9 @@
         android:orientation="vertical">
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/tlTransaction"
-            app:tabPadding="8dp"
+            app:tabPadding="10dp"
+            android:elevation="5dp"
+            android:background="@color/white"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
         <androidx.viewpager.widget.ViewPager
