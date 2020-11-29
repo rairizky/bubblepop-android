@@ -57,14 +57,14 @@ class CartFragment : Fragment() {
 
     private fun getCart(user_id: String) {
         // loading
-        showCartLoading()
+//        showCartLoading()
 
         // process
         NetworkConfig.service()
             .getListCart(user_id)
             .enqueue(object: Callback<CartResponse> {
                 override fun onFailure(call: Call<CartResponse>, t: Throwable) {
-                    hideCartLoading()
+//                    hideCartLoading()
                     rvCart.visibility = View.GONE
                     layoutCartRefresh.visibility = View.VISIBLE
                 }
@@ -74,7 +74,7 @@ class CartFragment : Fragment() {
                     response: Response<CartResponse>
                 ) {
                     if (response.isSuccessful) {
-                        hideCartLoading()
+//                        hideCartLoading()
 
                         val detail = response.body()
                         if (detail?.total == 0) {

@@ -40,7 +40,7 @@ class SettingFragment : Fragment() {
             userid = arguments?.getString(ARG_USER_ID) as String
         }
 
-        getIdSetting.text = userid
+//        getIdSetting.text = userid
 
     }
 

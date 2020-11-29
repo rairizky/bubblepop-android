@@ -8,7 +8,7 @@ data class DetailStatusTransactionResponse(
 	val total: Int? = null,
 
 	@field:SerializedName("updated_at")
-	val updatedAt: Any? = null,
+	val updated_at: Any? = null,
 
 	@field:SerializedName("user_id")
 	val userId: Int? = null,
@@ -41,13 +41,13 @@ data class TransactionDetailItem(
 	val size: String? = null,
 
 	@field:SerializedName("updated_at")
-	val updatedAt: String? = null,
+	val updated_at: Any? = null,
 
 	@field:SerializedName("price")
 	val price: Int? = null,
 
 	@field:SerializedName("created_at")
-	val createdAt: String? = null,
+	val created_at: Any? = null,
 
 	@field:SerializedName("id")
 	val id: Int? = null,

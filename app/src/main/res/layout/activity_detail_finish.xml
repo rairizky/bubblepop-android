@@ -79,7 +79,7 @@
                     </TableRow>
                     <TableRow>
                         <TextView
-                            android:text="CASHIER"
+                            android:text="KASIR"
                             android:fontFamily="@font/poppins_regular"
                             android:layout_weight="1"
                             android:layout_width="wrap_content"
@@ -119,22 +119,6 @@
                         <TextView
                             android:id="@+id/detailFinishPaid"
                             tools:text="100000"
-                            android:fontFamily="@font/poppins_semi_bold"
-                            android:textColor="@color/colorPrimary"
-                            android:layout_weight="1"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"/>
-                    </TableRow>
-                    <TableRow>
-                        <TextView
-                            android:text="TANGGAL"
-                            android:fontFamily="@font/poppins_regular"
-                            android:layout_weight="1"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"/>
-                        <TextView
-                            android:id="@+id/detailFinishDate"
-                            tools:text="19-05-2002 13:48"
                             android:fontFamily="@font/poppins_semi_bold"
                             android:textColor="@color/colorPrimary"
                             android:layout_weight="1"

@@ -85,4 +85,17 @@ interface ApiService {
         @Path("userId") userId: String,
         @Path("trId") trId : String
     ) : Call<DetailStatusTransactionResponse>
+
+    // get cashier
+    @GET("transaction/{userId}/tr/{trId}/cashier")
+    fun getDetailCashier(
+        @Path("userId") userId: String,
+        @Path("trId") trId: String
+    ) : Call<MessageResponse>
+
+    // get poin
+    @GET("transaction/{userId}/poin")
+    fun getPoint(
+        @Path("userId") userId: String
+    ) : Call<MessageResponse>
 }

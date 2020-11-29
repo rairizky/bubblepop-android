@@ -41,7 +41,7 @@ class ProfileFragment : Fragment() {
             userid = arguments?.getString(ARG_USER_ID) as String
         }
 
-        getIdProfile.text = userid
+//        getIdProfile.text = userid
     }
 
 }

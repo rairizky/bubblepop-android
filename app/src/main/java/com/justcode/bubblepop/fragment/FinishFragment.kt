@@ -56,14 +56,14 @@ class FinishFragment : Fragment() {
 
     fun getListFinish(user_id: String) {
         // show loading
-        showPendingLoading()
+//        showPendingLoading()
 
         // process
         NetworkConfig.service()
             .getListFinish(user_id)
             .enqueue(object: Callback<PendingFinishResponse> {
                 override fun onFailure(call: Call<PendingFinishResponse>, t: Throwable) {
-                    hidePendingLoading()
+//                    hidePendingLoading()
                     rvFinish.visibility = View.GONE
                     layoutFinishRefresh.visibility = View.VISIBLE
                 }

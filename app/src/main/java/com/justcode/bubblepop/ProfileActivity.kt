@@ -5,10 +5,16 @@ import android.os.Bundle
 import androidx.core.content.ContextCompat
 import com.example.awesomedialog.*
 import com.justcode.bubblepop.adapter.ProfilePagerAdapter
+import com.justcode.bubblepop.model.MessageResponse
+import com.justcode.bubblepop.network.NetworkConfig
 import com.justcode.bubblepop.network.SharedPrefManager
 import kotlinx.android.synthetic.main.activity_profile.*
 import org.jetbrains.anko.longToast
 import org.jetbrains.anko.startActivity
+import org.jetbrains.anko.toast
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class ProfileActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -40,6 +46,24 @@ class ProfileActivity : AppCompatActivity() {
                 }
                 .onNegative("Cancel")
         }
+
+        NetworkConfig.service()
+            .getPoint(current.id.toString())
+            .enqueue(object: Callback<MessageResponse> {
+                override fun onFailure(call: Call<MessageResponse>, t: Throwable) {
+                    toast(t.localizedMessage)
+                }
+
+                override fun onResponse(
+                    call: Call<MessageResponse>,
+                    response: Response<MessageResponse>
+                ) {
+                    if (response.isSuccessful) {
+                        totalPoinUser.text = response.body()?.message
+                    }
+                }
+
+            })
 
         // setup view pager
         val profilePagerAdapter = ProfilePagerAdapter(this, supportFragmentManager, current.id.toString())

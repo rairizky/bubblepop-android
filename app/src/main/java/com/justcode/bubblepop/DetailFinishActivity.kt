@@ -5,6 +5,7 @@ import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.justcode.bubblepop.adapter.TransactionPendingMenuAdapter
 import com.justcode.bubblepop.model.DetailStatusTransactionResponse
+import com.justcode.bubblepop.model.MessageResponse
 import com.justcode.bubblepop.network.NetworkConfig
 import com.justcode.bubblepop.network.SharedPrefManager
 import kotlinx.android.synthetic.main.activity_detail_finish.*
@@ -55,10 +56,25 @@ class DetailFinishActivity : AppCompatActivity() {
                         val data = response.body()
                         detailFinishNoTransaksi.text = data?.id.toString()
                         detailFinishName.text = data?.name
-                        detailFinishCashier.text = data?.cashier.toString()
                         detailFinishTotal.text = data?.total.toString()
                         detailFinishPaid.text = data?.paid.toString()
-                        detailFinishDate.text = data?.updatedAt.toString()
+                        NetworkConfig.service()
+                            .getDetailCashier(user_id, data?.id.toString())
+                            .enqueue(object: Callback<MessageResponse> {
+                                override fun onFailure(call: Call<MessageResponse>, t: Throwable) {
+                                    toast(t.localizedMessage)
+                                }
+
+                                override fun onResponse(
+                                    call: Call<MessageResponse>,
+                                    response: Response<MessageResponse>
+                                ) {
+                                    if (response.isSuccessful) {
+                                        detailFinishCashier.text = response.body()?.message
+                                    }
+                                }
+
+                            })
                         rvDetailFinish.layoutManager = LinearLayoutManager(this@DetailFinishActivity)
                         rvDetailFinish.adapter = TransactionPendingMenuAdapter(this@DetailFinishActivity, data?.transaction)
                     }

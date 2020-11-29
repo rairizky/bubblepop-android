@@ -54,14 +54,14 @@ class PendingFragment : Fragment() {
 
     private fun getListPending(user_id: String) {
         // show loading
-        showPendingLoading()
+//        showPendingLoading()
 
         // process
         NetworkConfig.service()
             .getListPending(user_id)
             .enqueue(object: Callback<PendingFinishResponse> {
                 override fun onFailure(call: Call<PendingFinishResponse>, t: Throwable) {
-                    hidePendingLoading()
+//                    hidePendingLoading()
                     rvPending.visibility = View.GONE
                     layoutPendingRefresh.visibility = View.VISIBLE
                 }
