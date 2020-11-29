@@ -6,9 +6,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.justcode.bubblepop.DetailFinishActivity
 import com.justcode.bubblepop.R
 import com.justcode.bubblepop.model.TransactionPendingFinishItem
 import kotlinx.android.synthetic.main.item_list_finish.view.*
+import org.jetbrains.anko.startActivity
 
 class FinishAdapter (private val context: Context?, var data: List<TransactionPendingFinishItem?>?)
     : RecyclerView.Adapter<FinishAdapter.ViewHolder>() {
@@ -24,10 +26,14 @@ class FinishAdapter (private val context: Context?, var data: List<TransactionPe
 
         holder.noTransaksi.text = item?.id.toString()
         holder.totalTransaksi.text = item?.total.toString()
+        holder.intentFinish.setOnClickListener {
+            context?.startActivity<DetailFinishActivity>("idfinish" to item?.id.toString())
+        }
     }
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         var noTransaksi = itemView.listFinishNoTransaksi
         var totalTransaksi = itemView.listFinishTotal
+        var intentFinish = itemView.btnToDetailFromFinish
     }
 }

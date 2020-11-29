@@ -7,14 +7,14 @@ data class MenuDetailResponse(
 
 data class MenuDetailItem(
 	val image: String? = null,
-	val categoryId: Int? = null,
-	val updatedAt: String? = null,
+	val category_id: Int? = null,
+	val updated_at: String? = null,
 	val name: String? = null,
 	val description: String? = null,
-	val createdAt: String? = null,
+	val created_at: String? = null,
 	val id: Int? = null,
-	val priceL: Int? = null,
-	val priceM: Int? = null,
+	val price_l: Int? = null,
+	val price_m: Int? = null,
 	val status: String? = null
 )
 

@@ -53,9 +53,11 @@ interface ApiService {
     ) : Call<CartResponse>
 
     // checkout cart
+    @FormUrlEncoded
     @POST("transaction/{userId}/cart/checkout")
     fun postCheckout(
-        @Path("userId") userId: String
+        @Path("userId") userId: String,
+        @Field("total") total: Int?
     ) : Call<MessageResponse>
 
     // transaction pending
@@ -64,10 +66,23 @@ interface ApiService {
         @Path("userId") userId: String
     ) : Call<PendingFinishResponse>
 
+    // detail pending
+    @GET("transaction/{userId}/pending/{trId}")
+    fun getDetailTransactionPending(
+        @Path("userId") userId: String,
+        @Path("trId") trId : String
+    ) : Call<DetailStatusTransactionResponse>
+
     // transaction finish
     @GET("transaction/{userId}/finish")
     fun getListFinish(
         @Path("userId") userId: String
     ) : Call<PendingFinishResponse>
 
+    // detail finish
+    @GET("transaction/{userId}/finish/{trId}")
+    fun getDetailTransactionFinish(
+        @Path("userId") userId: String,
+        @Path("trId") trId : String
+    ) : Call<DetailStatusTransactionResponse>
 }

@@ -177,12 +177,13 @@
                                     android:id="@+id/radioGroupMenu"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content">
+
                                     <RadioButton
                                         android:id="@+id/radioSizeMenuM"
-                                        android:text="M"
-                                        android:fontFamily="@font/poppins_medium"
                                         android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"/>
+                                        android:layout_height="wrap_content"
+                                        android:fontFamily="@font/poppins_medium"
+                                        android:text="M" />
                                     <RadioButton
                                         android:id="@+id/radioSizeMenuL"
                                         android:text="L"
@@ -191,10 +192,16 @@
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"/>
                                 </RadioGroup>
+                                <TextView
+                                    android:id="@+id/textPrice"
+                                    android:text="Harga : 0"
+                                    android:fontFamily="@font/poppins_medium"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"/>
                             </LinearLayout>
                             <LinearLayout
                                 android:id="@+id/layoutCounterMenu"
-                                android:visibility="gone"
+                                android:visibility="visible"
                                 android:layout_marginLeft="16dp"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
@@ -202,77 +209,27 @@
                                 <TextView
                                     android:text="Jumlah"
                                     android:fontFamily="@font/poppins_medium"
-                                    android:textSize="16sp"
+                                    android:textSize="15sp"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"/>
-                                <LinearLayout
+                                <EditText
+                                    android:id="@+id/detailJumlah"
+                                    android:text="0"
+                                    android:layout_marginTop="-5dp"
+                                    android:fontFamily="@font/poppins_medium"
+                                    android:textAlignment="center"
+                                    android:minLines="1"
+                                    android:inputType="number"
+                                    android:layout_marginStart="8dp"
+                                    android:layout_marginEnd="8dp"
+                                    android:layout_width="50dp"
+                                    android:layout_height="wrap_content"/>
+                                <EditText
+                                    android:id="@+id/getTotalMount"
+                                    android:text="0"
+                                    android:visibility="gone"
                                     android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:orientation="horizontal">
-                                    <androidx.cardview.widget.CardView
-                                        android:layout_gravity="center"
-                                        app:cardCornerRadius="8dp"
-                                        app:cardElevation="0dp"
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content">
-                                        <ImageView
-                                            android:id="@+id/btnDecreaseCounterMenu"
-                                            android:padding="4dp"
-                                            android:background="@drawable/layout_btn_icon_light"
-                                            app:tint="@color/colorWhite"
-                                            android:clickable="true"
-                                            android:foreground="?attr/selectableItemBackgroundBorderless"
-                                            android:src="@drawable/ic_baseline_keyboard_arrow_left_24"
-                                            android:layout_width="30dp"
-                                            android:layout_height="30dp"/>
-                                    </androidx.cardview.widget.CardView>
-                                    <EditText
-                                        android:text="0"
-                                        android:fontFamily="@font/poppins_medium"
-                                        android:textAlignment="center"
-                                        android:minLines="1"
-                                        android:inputType="number"
-                                        android:layout_marginStart="8dp"
-                                        android:layout_marginEnd="8dp"
-                                        android:layout_width="50dp"
-                                        android:layout_height="wrap_content"/>
-                                    <androidx.cardview.widget.CardView
-                                        android:layout_gravity="center"
-                                        app:cardElevation="0dp"
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        app:cardCornerRadius="8dp">
-                                        <ImageView
-                                            android:id="@+id/btnIncreaseCounterMenu"
-                                            android:padding="4dp"
-                                            android:background="@drawable/layout_btn_icon_light"
-                                            app:tint="@color/colorWhite"
-                                            android:clickable="true"
-                                            android:foreground="?attr/selectableItemBackgroundBorderless"
-                                            android:src="@drawable/ic_baseline_keyboard_arrow_right_24"
-                                            android:layout_width="30dp"
-                                            android:layout_height="30dp"/>
-                                    </androidx.cardview.widget.CardView>
-                                </LinearLayout>
-                                <LinearLayout
-                                    android:layout_marginTop="8dp"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:orientation="horizontal">
-                                    <TextView
-                                        android:text="Total Rp. "
-                                        android:textSize="16sp"
-                                        android:fontFamily="@font/poppins_medium"
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"/>
-                                    <TextView
-                                        android:id="@+id/totalPriceMenu"
-                                        tools:text="60000"
-                                        android:fontFamily="@font/poppins_medium"
-                                        android:textSize="16sp"
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"/>
-                                </LinearLayout>
+                                    android:layout_height="wrap_content"/>
                             </LinearLayout>
                         </LinearLayout>
                     </LinearLayout>

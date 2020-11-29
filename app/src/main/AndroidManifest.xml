@@ -12,7 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".TransactionActivity"></activity>
+        <activity android:name=".DetailFinishActivity"></activity>
+        <activity android:name=".DetailPendingActivity" />
+        <activity android:name=".TransactionActivity" />
         <activity android:name=".MenuActivity" />
         <activity android:name=".ProfileActivity" />
         <activity android:name=".RegisterActivity" />

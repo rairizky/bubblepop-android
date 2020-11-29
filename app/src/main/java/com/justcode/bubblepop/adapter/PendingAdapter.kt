@@ -5,10 +5,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.justcode.bubblepop.DetailPendingActivity
 import com.justcode.bubblepop.R
 import com.justcode.bubblepop.model.PendingFinishResponse
 import com.justcode.bubblepop.model.TransactionPendingFinishItem
 import kotlinx.android.synthetic.main.item_list_pending.view.*
+import org.jetbrains.anko.startActivity
+import org.jetbrains.anko.toast
 
 class PendingAdapter(private val context: Context?, var data: List<TransactionPendingFinishItem?>?)
     : RecyclerView.Adapter<PendingAdapter.ViewHolder>() {
@@ -23,11 +26,20 @@ class PendingAdapter(private val context: Context?, var data: List<TransactionPe
         val item = data?.get(position)
         holder.noTransaksi.text = item?.id.toString()
         holder.totalTransaksi.text = item?.total.toString()
+
+        // to detail
+        holder.intentDetail.setOnClickListener {
+            context?.startActivity<DetailPendingActivity>(
+                "idpending" to item?.id.toString(),
+                "totalPrice" to item?.total.toString()
+            )
+        }
     }
 
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         var noTransaksi = itemView.listPendingNoTransaksi
         var totalTransaksi = itemView.listPendingTotal
+        var intentDetail = itemView.btnToDetailFromPending
     }
 }
